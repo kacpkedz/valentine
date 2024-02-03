@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="lol.jpg">
+    <title>aha??????</title>
+</head>
+<body>
+    <img src="lol.jpg">
+    <h1> TO NIE BYLO PYTANIE KOCHANIENKA</h1>
+    <div id="przyciski">
+        <button id="tak"> TAK </button>
+        <button id="przycisk"> NIE </button>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const przycisk = document.getElementById('przycisk');
+    
+        function losujPozycjePrzycisku() {
+            const szerokoscOkna = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            const wysokoscOkna = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    
+            const szerokoscPrzycisku = przycisk.offsetWidth;
+            const wysokoscPrzycisku = przycisk.offsetHeight;
+    
+            const maksymalnaPozycjaX = szerokoscOkna - szerokoscPrzycisku;
+            const maksymalnaPozycjaY = wysokoscOkna - wysokoscPrzycisku;
+    
+            const nowaPozycjaX = Math.floor(Math.random() * maksymalnaPozycjaX);
+            const nowaPozycjaY = Math.floor(Math.random() * maksymalnaPozycjaY);
+    
+            przycisk.style.position = 'absolute';
+            przycisk.style.left = nowaPozycjaX + 'px';
+            przycisk.style.top = nowaPozycjaY + 'px';
+        }
+    
+        przycisk.addEventListener('click', function() {
+            losujPozycjePrzycisku();
+        });
+    </script>    
+</body>
+</html>
